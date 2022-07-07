@@ -1,9 +1,10 @@
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import HomeScreen from './HomeScreen';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import { getToken } from '../../../services/AsyncStorageService';
+import { AntDesign } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
 const Drawer = createDrawerNavigator();
 const ShopTab = () => {
@@ -24,11 +25,11 @@ const ShopTab = () => {
   }
 
   return (
-    <Drawer.Navigator screenOptions={{ headerStyle: { backgroundColor: 'purple' }, headerTintColor: 'white', drawerStyle: { backgroundColor: '#F0EDED' } }}>
+    <Drawer.Navigator screenOptions={{ headerStyle: { backgroundColor: 'white' }, headerTintColor: '#246EE9', drawerStyle: { backgroundColor: '#246EE9',paddingTop: 40 } }}>
 
       <Drawer.Screen name="Home" component={HomeScreen} options={{
-        headerTitle: 'Geek-Shop', drawerActiveTintColor: 'black', headerRight: () => <TouchableWithoutFeedback onPress={handleUserAuth}>
-          {userLToken ? <Text style={{ color: 'white', fontSize: 18, paddingRight: 20, fontWeight: 'bold' }}>Dashboard</Text> : <Text style={{ color: 'white', fontSize: 18, paddingRight: 20, fontWeight: 'bold' }}>Login</Text>}
+        headerTitle: 'Welcome', drawerActiveTintColor: 'white', headerRight: () => <TouchableWithoutFeedback onPress={handleUserAuth}>
+          {userLToken ? <Text style={{ color: 'white', fontSize: 18, paddingRight: 20, fontWeight: 'bold' }}>Dashboard</Text> : <AntDesign name="login" style={styles.login} size={24}  />}
 
         </TouchableWithoutFeedback>
       }} />
@@ -36,5 +37,17 @@ const ShopTab = () => {
     </Drawer.Navigator>
   )
 }
+
+const styles = StyleSheet.create({
+   login:{
+    color: '#246EE9',
+    fontSize: 18, 
+    fontWeight: 'bold',
+    paddingRight: 20    
+    
+   }
+}   
+);     
+
 
 export default ShopTab

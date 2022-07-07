@@ -6,10 +6,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   input: {
-    height: 40,
+    height: 50,
     borderWidth: 1,
+    borderColor: "#dde1e6",   
     paddingHorizontal: 15,
-    borderRadius: 15,
+    borderRadius: 5,
     fontSize: 15
   },
   inputWithLabel: {

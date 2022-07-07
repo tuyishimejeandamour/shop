@@ -53,7 +53,7 @@ const UserLoginScreen = () => {
       <ScrollView keyboardShouldPersistTaps='handled'>
         <View style={{ marginHorizontal: 30 }}>
           <View style={{ alignSelf: 'center', marginBottom: 10 }}>
-            <MaterialIcon name='shopping-bag' color='purple' size={100} />
+            <MaterialIcon name='shopping-bag' color='#246EE9' size={100} />
           </View>
           <View style={[styles.inputWithLabel, { marginBottom: 10 }]}>
             <Text style={styles.labelText}>Email</Text>
@@ -64,17 +64,17 @@ const UserLoginScreen = () => {
             <TextInput style={styles.input} value={password} onChangeText={setPassword} placeholder="Write Your Password" secureTextEntry={true} />
           </View>
           <View style={{ width: 200, alignSelf: 'center', margin: 20 }}>
-            <Button title='Login' onPress={handleFormSubmit} color='purple' />
+            <Button title='Login' onPress={handleFormSubmit} color='#246EE9' />
           </View>
           <View style={{ flexDirection: 'row' }}>
             <View style={{ flex: 1 }}>
               <TouchableWithoutFeedback onPress={() => { navigation.navigate('SendPasswordResetEmail') }} >
-                <Text style={{ fontWeight: 'bold' }}>Forgot Password?</Text>
+                <Text style={{ fontWeight: '500',color: '#246EE9' }}>Forgot Password?</Text>
               </TouchableWithoutFeedback>
             </View>
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1,alignContent:'center' }}>
               <TouchableWithoutFeedback onPress={() => { navigation.navigate('Registration') }}>
-                <Text style={{ fontWeight: 'bold' }}>New User? Registration</Text>
+                <Text style={{ fontWeight: '500',color: '#246EE9' }}>New User? Registration</Text>
               </TouchableWithoutFeedback>
             </View>
           </View>

@@ -13,7 +13,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: 'purple' }, headerTintColor: 'white' }}>
+      <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: 'white' }, headerTintColor: '#246EE9' }}>
         <Stack.Screen name="ShopTab" component={ShopTab} options={{ headerShown: false }} />
         <Stack.Screen name="UserLogin" component={UserLoginScreen} options={{ title: 'User Login' }} />
         <Stack.Screen name="Registration" component={RegistrationScreen} options={{ title: 'Registration', headerBackVisible: false }} />

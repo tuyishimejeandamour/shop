@@ -66,7 +66,7 @@ const RegistrationScreen = () => {
     <SafeAreaView>
       <Toast config={toastConfig} />
       <ScrollView keyboardShouldPersistTaps='handled'>
-        <View style={{ marginHorizontal: 30 }}>
+        <View style={{ marginHorizontal: 30,justifyContent: 'center',alignItems:'center' }}>
           <View style={styles.inputWithLabel}>
             <Text style={styles.labelText}>Name</Text>
             <TextInput style={styles.input} value={name} onChangeText={setName} placeholder="Write Your Name" />
@@ -88,15 +88,12 @@ const RegistrationScreen = () => {
             <Text style={styles.labelText}>I agree to term and condition.</Text>
           </View>
           <View style={{ width: 200, alignSelf: 'center', margin: 20 }}>
-            <Button title='Join' onPress={handleFormSubmit} color='purple' />
+            <Button title='Join' onPress={handleFormSubmit} color='#246EE9' />
           </View>
-          <View style={{ alignItems: 'flex-end' }}>
+          <View style={{ alignItems: 'center' }}>
             <TouchableWithoutFeedback onPress={() => { navigation.navigate('UserLogin') }}>
-              <Text style={{ fontWeight: 'bold' }}>Already Registered ? Login</Text>
+              <Text style={{ fontWeight: 'bold',color:'#246EE9' }}>Already Registered ? Login</Text>
             </TouchableWithoutFeedback>
-          </View>
-          <View style={{ alignSelf: 'center', marginBottom: 10 }}>
-            <MaterialIcon name='shopping-bag' color='purple' size={100} />
           </View>
         </View>
       </ScrollView>
