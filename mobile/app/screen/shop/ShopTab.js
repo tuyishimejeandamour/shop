@@ -5,6 +5,7 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import { getToken } from '../../../services/AsyncStorageService';
 import { AntDesign } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
 const Drawer = createDrawerNavigator();
 const ShopTab = () => {
@@ -29,7 +30,7 @@ const ShopTab = () => {
 
       <Drawer.Screen name="Home" component={HomeScreen} options={{
         headerTitle: 'Welcome', drawerActiveTintColor: 'white', headerRight: () => <TouchableWithoutFeedback onPress={handleUserAuth}>
-          {userLToken ? <Text style={{ color: 'white', fontSize: 18, paddingRight: 20, fontWeight: 'bold' }}>Dashboard</Text> : <AntDesign name="login" style={styles.login} size={24}  />}
+          {userLToken ? <FontAwesome5 name="dashcube" size={24} style={styles.login} /> : <AntDesign name="login" style={styles.login} size={24}  />}
 
         </TouchableWithoutFeedback>
       }} />

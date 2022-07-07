@@ -22,9 +22,9 @@ const SideBar = ({ ...props }) => {
   // console.log(myToken)
   return (
     <DrawerContentScrollView {...props}>
-      <View style={{ margin: 15 }}>
-        <Text style={{ fontSize: 18, marginBottom: 5, fontWeight: 'bold' }}>{myData.name}</Text>
-        <Text style={{ fontSize: 16, marginBottom: 5 }}>{myData.email}</Text>
+      <View style={{ margin: 0,paddingTop: 30, paddingLeft: 20, paddingBottom: 10,height: 90,backgroundColor:'#246EE9' }}>
+        <Text style={{ fontSize: 18, marginBottom: 5, fontWeight: 'bold',color:'white' }}>{myData.name}</Text>
+        <Text style={{ fontSize: 16, marginBottom: 5,color:'white' }}>{myData.email}</Text>
       </View>
       <DrawerItemList {...props} />
       <DrawerItem label='Logout' onPress={handleLogout} />
