@@ -5,6 +5,7 @@ import transporter from '../config/emailConfig.js'
 
 class UserController {
   static userRegistration = async (req, res) => {
+    console.log(req.body)
     const { name, email, password, password_confirmation, tc } = req.body
     const user = await UserModel.findOne({ email: email })
     if (user) {

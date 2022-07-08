@@ -31,20 +31,32 @@ const RegistrationScreen = () => {
     if (name && email && password && password_confirmation && tc) {
       if (password === password_confirmation) {
         const formData = { name, email, password, password_confirmation, tc }
-        const res = await registerUser(formData)
-        if (res.data.status === "success") {
-          await storeToken(res.data.token) // Store Token in Storage
-          clearTextInput()
-          navigation.navigate('UserPanelTab')
+        registerUser(formData).then(async(res) => {
+          console.log(res)
+          if (res.data.status === "success") {
+            await storeToken(res.data.token) // Store Token in Storage
+            clearTextInput()
+            navigation.navigate('UserPanelTab')
+          }
+          if (res.data.status === "failed") {
+            Toast.show({
+              type: 'warning',
+              position: 'top',
+              topOffset: 0,
+              text1: res.data.message
+            })
+          }
         }
-        if (res.data.status === "failed") {
-          Toast.show({
-            type: 'warning',
-            position: 'top',
-            topOffset: 0,
-            text1: res.data.message
-          })
-        }
+          ).catch(err => {
+            Toast.show({
+              type: 'warning',
+              position: 'top',
+              topOffset: 0,
+              text1: err.message
+              })
+          }
+        )
+       
       } else {
         Toast.show({
           type: 'warning',
