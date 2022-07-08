@@ -8,6 +8,7 @@ import Toast from 'react-native-toast-message';
 import Checkbox from 'expo-checkbox';
 import { useRegisterUserMutation } from '../../../services/userAuthApi';
 import { storeToken } from '../../../services/AsyncStorageService';
+import { usePostAllMutation } from '../../../services/productsApi';
 
 const CreateProductScreen = () => {
   const [name, setName] = useState("")
@@ -23,15 +24,14 @@ const CreateProductScreen = () => {
   }
   const navigation = useNavigation()
 
-  const [registerUser] = useRegisterUserMutation()
+  const [postAll] = usePostAllMutation()
 
   const handleFormSubmit = async () => {
     if (name && description && price && imageUrl ) {
       if (imageUrl.length > 10) {	
         const formData = { name,description,price, imageUrl}
-        const res = await registerUser(formData)
+        const res = await postAll(formData)
         if (res.data.status === "success") {
-          await storeToken(res.data.token) // Store Token in Storage
           clearTextInput()
           navigation.navigate('UserPanelTab')
         }
@@ -48,7 +48,7 @@ const CreateProductScreen = () => {
           type: 'warning',
           position: 'top',
           topOffset: 0,
-          text1: "Password and Confirm Password doesn't match"
+          text1: "url in invalid"
         })
       }
     } else {

@@ -1,4 +1,4 @@
-const Product = require('../models/product.model')
+import Product from '../models/product.model.js'
 
 export const createProduct = async (req, res) => {
 	const { description, imageurl } = req.body;
